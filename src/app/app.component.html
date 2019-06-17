@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<button (click)="saveToDb()">Save To DB</button>
+<button (click)="downloadCSV()">Download</button>
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Value</th>
+    <th>Remove</th>
+  </tr>
+  <tr *ngFor="let data of datas;let i = index">
+    <td>{{data.key}}</td>
+    <td>{{data.value}}</td>
+    <td><button (click)="remove(i)">remove</button></td>
+  </tr>
+  <tr>
+    <!-- <td> <input [(ngModel)]="keyInput"/> </td> -->
+    <td> 
+      <select [(ngModel)]="keyInput">
+        <option value="singapore">Singapore</option>
+        <option value="india">India</option>
+        <option value="vietnam">Viet Nam</option>
+        <option value="unitedstates">United States</option>
+      </select>
+    </td>
+    <td>
+      <!-- <input [(ngModel)]="valueInput"/> -->
+      <select [(ngModel)]="valueInput">
+          <option value="sg">SG</option>
+          <option value="in">IN</option>
+          <option value="vn">VN</option>
+          <option value="us">US</option>
+        </select>
+    </td>
+    <td> <button (click)="add()">Add Option</button> </td>
+  </tr>
+</table>
+
+<router-outlet></router-outlet>
